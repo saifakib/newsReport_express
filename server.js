@@ -2,6 +2,26 @@ const express = require('express');
 const app = express();
 const exphbs = require('express-handlebars');
 const path = require('path');
+var bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+//mongodb connect
+mongoose.connect('mongodb://localhost/blog_content');
+
+//Check connection with mongodb
+const db = mongoose.connection;
+db.on('error', (err) =>{
+    console.log(err);
+});
+db.once('open', ()=>{
+    console.log('Database connection stablished');
+});
+
+// Body Parser middleware
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+// parse application/json
+app.use(bodyParser.json());
 
 
 //Handlebars Middleware Engine
