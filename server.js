@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars');
 const path = require('path');
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const morgan = require('morgan');
 
 //mongodb connect
 mongoose.connect('mongodb://localhost/blog_content');
@@ -33,12 +34,20 @@ app.set('view engine', 'handlebars');
 //Static
 app.use(express.static(path.join(__dirname, 'public')));
 
-//PORT
-const port = process.env.PORT || 8000;
+app.use(morgan('dev'));
 
-app.use((req,res)=>{
-    res.send('hello');
+app.get('/', (req, res) =>{
+    res.render('home', {
+        title : 'WellCome'
+    })
 });
+app.get('/about', (req, res) =>{
+    res.render('about')
+});
+
+
+//PORT
+const port = process.env.PORT || 7000;
 
 //port connect
 app.listen(port, ()=>{
