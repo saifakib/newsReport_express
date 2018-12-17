@@ -5,6 +5,7 @@ const path = require('path');
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
+const content = require('./routers/content');
 
 //mongodb connect
 mongoose.connect('mongodb://localhost/blog_content');
@@ -44,6 +45,9 @@ app.get('/', (req, res) =>{
 app.get('/about', (req, res) =>{
     res.render('about')
 });
+
+//useing router
+app.use('/content', content);
 
 
 //PORT
