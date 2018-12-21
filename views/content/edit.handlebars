@@ -1,0 +1,18 @@
+<div class="content">
+    <h3>Edit Content</h3>
+    <form method="post" action="/content/{{content.id}}">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" name="title" value="{{content.title}}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea type="text" class="form-control" name="description" value="{{content.description}}" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" class="form-control-file" name="image" value="{{content.image}}" required>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</div>

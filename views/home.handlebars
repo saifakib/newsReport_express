@@ -4,16 +4,16 @@
 </div>
 <div class="row">
     {{#each contents}}
-    <div class="col-md-4">
-        <div class="card my-2" >
-            <img class="card-img-top" src="{{image}}" style="height: 200px; width: auto" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{title}}</h5>
-                <p class="card-text">{{id}}</p>
-                <a href="/content/{{id}}" class="btn btn-primary">read</a>
+        <div class="col-md-4">
+            <div class="card my-2" >
+                <img class="card-img-top" src="{{image}}" style="height: 200px; width: auto" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{title}}</h5>
+                    <p class="card-text">{{id}}</p>
+                    <a href="/content/{{id}}" class="btn btn-primary">read</a>
+                </div>
             </div>
         </div>
-    </div>
     {{else}}
         <p>no content added</p>
     {{/each}}
